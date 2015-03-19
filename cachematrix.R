@@ -1,7 +1,16 @@
-#makeCacheMatrix make it possible to invert the orginal matrix
-#without changing the same.
-
-# Write a matrix as cached object to the parent invronment
+############################################################
+##
+## Programming assignment 2: 
+## Coursera course data Science: RProgramming
+##
+############################################################
+## The function makeCacheMatrix is caching a matrix for 
+## time consuming operations. The target is to cache
+## the data if more then one access is used and to proceed 
+## operations in memory.
+## The method introduce the the <<- operator to assign
+## the data structore to objects in the parent environment.
+##
 makeCacheMatrix <- function(orginalMatrix = matrix()) {
   #define and init variable to store inversed matrix
   cachedInverseMat <- NULL
@@ -25,8 +34,16 @@ makeCacheMatrix <- function(orginalMatrix = matrix()) {
 }
 
 
-# Calculate the inversed matrix in cached the parent environment
-# and return the inversed matrix of 'x'
+############################################################
+##
+## Programming assignment 2:
+## Coursera course data Science: RProgramming
+##
+############################################################
+## CacheSolve caches the matrix,
+## makes the calculating of the inversed matrix in cache
+## and return the inversed matrix.
+##
 cacheSolve <- function(orginalMatrix, ...) {
   #set the cached variable for the inversed matrix with the memory place of
   #the parent environment
@@ -48,20 +65,9 @@ cacheSolve <- function(orginalMatrix, ...) {
 }
 
 #Solution example
-#> orginalMatrix <- rbind(c(2,1),c(3,2))
-#> orginalMatrix
-#[,1] [,2]
-#[1,]    2    1
-#[2,]    3    2
-#> fkt<-makeCachematrix(orginalMatrix)
-#Error: could not find function "makeCachematrix"
-#> fkt<-makeCacheMatrix(orginalMatrix)
-#> cacheSolve(fkt)
-#[,1] [,2]
-#[1,]    2   -1
-#[2,]   -3    2
-#> solve(orginalMatrix)
-#[,1] [,2]
-#[1,]    2   -1
-#[2,]   -3    2
-#> 
+orginalMatrix <- rbind(c(2,1),c(3,2))
+orginalMatrix
+fkt<-makeCacheMatrix(orginalMatrix)
+cacheSolve(fkt)
+solve(orginalMatrix)
+ 
